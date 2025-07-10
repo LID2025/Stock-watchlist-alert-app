@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <!-- EB Garamond import link -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="Login.css" />
+</head>
+<body>
+  <header>Stock Alert</header>
+
+  <!--  wrapper for vert centering -->
+  <div class="main">
+    <div class="container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email" required />
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+
+      <p>Don't have an account? <a href="#" id="toggleSignUp">Sign up here</a></p>
+
+      <div id="signUpBox" style="display: none;">
+        <h2>Sign Up</h2>
+        <form id="signUpForm">
+          <input type="email" id="signUpEmail" placeholder="Email" required />
+          <input type="password" id="signUpPassword" placeholder="Password" required />
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDKS-->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+
+  <script>
+    // Firebase config info
+    const firebaseConfig = {
+      apiKey: "AIzaSyDsBzeLkcHqsKsD21DUKRJHommESNH88cQ",
+      authDomain: "stock-monitor-8a53b.firebaseapp.com",
+      projectId: "stock-monitor-8a53b",
+      storageBucket: "stock-monitor-8a53b.appspot.com",
+      messagingSenderId: "864561708840",
+      appId: "1:864561708840:web:79e00436e7e0139f569a1d",
+      measurementId: "G-FB65B8J3M8"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Toggles the Sign Up Section
+    document.getElementById("toggleSignUp").addEventListener("click", () => {
+      const signUpBox = document.getElementById("signUpBox");
+      signUpBox.style.display = signUpBox.style.display === "none" ? "block" : "none";
+    });
+
+    // Login 
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("loginEmail").value.trim();
+      const password = document.getElementById("loginPassword").value;
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          console.log("✅ Logged in successfully");
+          window.location.href = "App.html";  
+        })
+        .catch(err => {
+          console.error("Login error:", err);
+          alert("Login error: " + err.message);
+        });
+    });
+
+    // Sign Up 
+    document.getElementById("signUpForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("signUpEmail").value.trim();
+      const password = document.getElementById("signUpPassword").value;
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          console.log("Sign-up successful");
+          window.location.href = "App.html";  
+        })
+        .catch(err => {
+          console.error("Sign-up error:", err);
+          alert("Sign up error: " + err.message);
+        });
+    });
+  </script>
+</body>
+</html>
+
+

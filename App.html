@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Stock Watchlist</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="App.css" />
+</head>
+<body>
+  <div id="app" style="display: none;">
+    <div class="main-layout">
+
+      <!-- Left stock list box -->
+      <div id="stockListBox">
+        <h2>Stocks</h2>
+        <ul id="stockList"></ul>
+      </div>
+
+      <!-- Center watchlist container -->
+      <div class="container">
+        <button id="logoutBtn">Logout</button>
+        <h1>Stock Watchlist</h1>
+
+        <form id="stockForm" class="stock-form">
+          <input type="text" id="symbolInput" placeholder="Stock symbol" required />
+          <input type="number" id="thresholdInput" placeholder="Alert price" required />
+          <button type="submit">Add Stock</button>
+        </form>
+
+        <div id="watchlistSection">
+          <ul id="watchlist"></ul>
+          <!-- TradingView embed container -->
+          <div id="tradingviewChart"></div>
+        </div>
+      </div>
+
+      <!-- Right history box -->
+      <div id="historyBox">
+        <h2>History</h2>
+        <div id="alertHistory"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Firebase SDKs and scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <!-- Removed Chart.js script -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-functions-compat.js"></script>
+  <script src="https://s3.tradingview.com/tv.js"></script> <!-- TradingView widget script -->
+  <script src="script.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
