@@ -1,12 +1,12 @@
 // Firebase config info
 const firebaseConfig = {
-  apiKey: "AIzaSyDsBzeLkcHqsKsD21DUKRJHommESNH88cQ",
-  authDomain: "stock-monitor-8a53b.firebaseapp.com",
-  projectId: "stock-monitor-8a53b",
-  storageBucket: "stock-monitor-8a53b.appspot.com",
-  messagingSenderId: "864561708840",
-  appId: "1:864561708840:web:79e00436e7e0139f569a1d",
-  measurementId: "G-FB65B8J3M8"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -18,7 +18,7 @@ let currentUser = null;
 let watchlist = [];
 let selectedSymbol = null; // currently selected stock for TradingView
 
-const API_KEY = "83383cfcdf8b4e5f906ba2e7af85baa4";
+const API_KEY = "";
 
 auth.onAuthStateChanged((user) => {
   if (user) {
