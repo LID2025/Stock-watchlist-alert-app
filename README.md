@@ -29,3 +29,10 @@ A web-based stock tracking app using Firebase, TradingView, and Twelve Data API 
    - An **email alert is sent** via Firebase Cloud Functions.
    - The event is **recorded in the alert history**.
    - The chart updates to show real-time data via TradingView.
+
+## Setup
+
+1. Clone the repo
+2. Run `npm install` inside `/functions` for Firebase Functions
+3. Add a `.env` file with your API keys
+4. Deploy with Firebase CLI
